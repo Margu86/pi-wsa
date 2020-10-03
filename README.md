@@ -63,7 +63,7 @@ beziehungsweise (Pi3):
 
     git clone https://github.com/bablokb/pi-wsa.git
     cd pi-wsa
-    sudo tools/install-pi0
+    sudo tools/install-pi3
 
 Soll die Wechselsprechanlage automatisch durch den Türgong gestartet werden,
 dann muss der Gong an den Pi3 angeschlossen werden. Die Installation der
