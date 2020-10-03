@@ -2,14 +2,14 @@
 # --------------------------------------------------------------------------
 # Installationsdatei für den Pi0: RTSP-Server installieren
 #
-# Author: Bernhard Bablok
+# Author: Bernhard Bablok, Benjamin Zeussel
 # License: GPL3
 #
 # Website: https://github.com/bablokb/pi-wsa
 #
 # --------------------------------------------------------------------------
 
-PACKAGES="liblog4cpp5-dev liblivemedia-dev"
+PACKAGES="liblog4cpp5-dev liblivemedia-dev cmake"
 
 # --- basic packages   ------------------------------------------------------
 
@@ -69,8 +69,36 @@ configure_system() {
   fi
 }
 
+
+# --- install v4l2rtspserver from Source(Github) ----------------------------
+install_v4l2rtspserver(){
+  read -p "Soll v4l2rtspserver und libv4l2cpp aus den Github-Quellen installiert werden? " -n 1 -r
+  if[[ $REPLY =~ ^[YyJj]$ ]]
+  then
+  
+    # install libv4l2cpp
+    echo -e "[INFO] Installiere libv4l2cpp" 2>&1
+    cd ~/
+    git clone https://github.com/mpromonet/libv4l2cpp.git
+    cd libv4l2cpp/
+    make
+    sudo mkdir /usr/include/libv4l2cpp/
+    sudo make install
+    
+    # install v4l2rtspserver
+    echo -e "[INFO] Installiere v4l2rtspserver" 2>&1
+    cd ~/
+    git clone https://github.com/mpromonet/v4l2rtspserver.git
+    cd v4l2rtspserver/
+    echo -e "[INFO] Start des Build-Prozesses, dass kann jetzt ein wenig dauern ;-)" 2>&1
+    cmake . && make
+    sudo make install
+  fi
+}
+
 # --- main program   --------------------------------------------------------
 
 install_packages
 install_files
 configure_system
+install_v4l2rtspserver
