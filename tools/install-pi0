@@ -75,7 +75,9 @@ install_v4l2rtspserver(){
   read -p "Soll v4l2rtspserver und libv4l2cpp aus den Github-Quellen installiert werden? " -n 1 -r
   if[[ $REPLY =~ ^[YyJj]$ ]]
   then
-  
+    
+    # install libasoun required for audio
+    sudo apt install libasound2-dev
     # install libv4l2cpp
     echo -e "[INFO] Installiere libv4l2cpp" 2>&1
     cd ~/
