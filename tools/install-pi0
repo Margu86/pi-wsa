@@ -77,7 +77,7 @@ install_v4l2rtspserver(){
   then
     
     # install libasoun required for audio
-    sudo apt install libasound2-dev
+    sudo apt install libasound2-dev libclalsadrv-dev
     # install libv4l2cpp
     echo -e "[INFO] Installiere libv4l2cpp" 2>&1
     cd ~/
