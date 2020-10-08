@@ -9,7 +9,7 @@
 #
 # --------------------------------------------------------------------------
 
-PACKAGES="liblog4cpp5-dev liblivemedia-dev cmake"
+PACKAGES="liblog4cpp5-dev liblivemedia-dev libasound2-dev cmake"
 
 # --- basic packages   ------------------------------------------------------
 
@@ -76,8 +76,6 @@ install_v4l2rtspserver(){
   if[[ $REPLY =~ ^[YyJj]$ ]]
   then
     
-    # install libasoun required for audio
-    sudo apt install libasound2-dev libclalsadrv-dev
     # install libv4l2cpp
     echo -e "[INFO] Installiere libv4l2cpp" 2>&1
     cd ~/
