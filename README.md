@@ -1,4 +1,4 @@
-Projekt pi-wsa: Eine Wechselsprechanlage zwischen Pi-Zero-W und Pi3
+Projekt pi-wsa: Eine Wechselsprechanlage zwischen Pi-Zero-W und Pi3/4
 ===================================================================
 
 Dieses Projekt implementiert eine Wechselsprechanlage auf Basis eines
